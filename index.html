@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-compatible" content="ie=edge"/>
+        <link rel="stylesheet" href="styles.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&display=swap" rel="stylesheet">        <title>Rock, paper, siccors game</title>
+    </head>
+    <body>
+        <section class="container">
+            <div class="score">
+                <h1 class="title">Rock, paper, scissors</h1>
+                <div class="player-score">
+                    <h2>Player</h2>
+                    <p id="player-score">0</p>
+                </div>
+                <div class="computer-score">
+                    <h2>Computer</h2>
+                    <p id="computer-score">0</p>
+                </div>
+                <button class="btn-start-game">Let's play!</button>
+            </div>
+            <div class="match game-screen fadeOut">
+                <h4 class="round-winner"></h4>
+                <div class="choise xanimation">
+                    <div class="rotate player-choise">
+                        <img class="player-hand" src="assets/rock.png" alt=""/>
+                    </div>
+                    <div class="computer-choise">
+                        <img class="computer-hand" src="assets/rock.png" aly=""/>
+                    </div>
+                </div>
+                <h2 class="title-select-choise">Select your choise!</h2>
+                <div class="options">
+                    <button class="btn-option btn-rock" value="rock"></button>
+                    <button class="btn-option btn-scissors" value="scissors"></button>
+                    <button class="btn-option btn-paper" value="paper"></button>
+                </div>
+            </div>
+        </section>
+        <div id="modal" class="fadeOut">
+            <div class="modal-body">
+                <h3 class="modal-title">Game Over!!!</h3>
+                <p class="winner">HHHH</p>
+                <button class="btn btn-start-new-game">Start new game</button>
+            </div>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>
