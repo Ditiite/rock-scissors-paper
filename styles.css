@@ -1,9 +1,18 @@
+:root {
+    --main-bg-color: #606060FF;
+    --main-dark-opacity: rgba(41, 41, 41, 0.8);
+    --main-light-color: rgb(156, 155, 155);
+    --main-lime-color: rgb(170, 189, 3);
+    --light-lime-color: #D6ED17FF;
+    --dark-lime-color: rgb(147, 163, 0);
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Dosis', sans-serif;
-    background-color: #606060FF;
-    color:  rgb(170, 189, 3);
+    background-color: var(--main-bg-color);
+    color: var(--main-lime-color);
 }
 
 .container {
@@ -17,12 +26,12 @@ body {
     /* position: relative; */
 }
 
-.fadeOut {
+.fade__out {
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
 }
 
-.fadeIn {
+.fade__in {
     opacity: 1;
     transition: visibility 0s, opacity 0.5s linear;
 }
@@ -32,30 +41,42 @@ img {
     transition: visibility 0s, opacity 0.5s linear;
 }
 
+button {
+    cursor: pointer;
+}
+
+button:active {
+    transform: translateY(4px);
+    transition: linear cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
 .score {
     display: grid;
     grid-area: score;
     grid-template-areas: 
         "title title"
-        "player-score computer-score"
+        "player__score computer__score"
         "start-game start-game";
     grid-template-columns: 50% 50%;
 }
 
-.player-score {
-    grid-area: player-score;
+.player__score {
+    grid-area: player__score;
 }
 
-.computer-score {
-    grid-area: computer-score;
+.computer__score {
+    grid-area: computer__score;
 }
 
-.title {
-    grid-area: title;
-}
-
-.btn-start-game {
+.btn__start-game {
     grid-area: start-game;
+    background-color: var(--light-lime-color);
+    padding: 5px;
+    color: var(--main-bg-color);
+    border: none;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .match {
@@ -84,9 +105,9 @@ img {
     grid-area: title;
 }
 
-.computer-choise img,
+.computer__choise img,
 .player-choise img {
-    transform: rotateZ(33deg);
+    transform: rotateZ(57deg);
 }
 
 .rotate {
@@ -98,12 +119,15 @@ img {
     grid-area: options;
 }
 
-.options .btn-option {
-    background-color: #D6ED17FF;
+.options .btn__option {
+    background-color: var(--light-lime-color);
     border: none;
 }
 
-.btn-option {
+.title__hands__rock,
+.title__hands__scissors,
+.title__hands__paper,
+.btn__option {
     height: 100px;
     width: 100px;
     background-color: transparent;
@@ -114,18 +138,61 @@ img {
     outline: none;
 }
 
-.btn-rock {
+.title__hands__rock,
+.btn__rock {
     background-image: url('./assets/rock.png');
 }
 
-.btn-paper {
+.title__hands__paper,
+.btn__paper {
     background-image: url('./assets/paper.png');
 }
 
-.btn-scissors {
+.title__hands__scissors,
+.btn__scissors {
     background-image: url('./assets/scissors.png');
 }
 
+/* Header circle */
+.title {
+    grid-area: title;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.title__hands {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid var(--dark-lime-color);
+}
+
+.title__hands__rock,
+.title__hands__paper,
+.title__hands__scissors {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    background-color: var(--dark-lime-color);
+    background-size: 50px 50px;
+}
+
+.title__hands__rock {
+    top: -13%;
+    right: 30%;
+}
+
+.title__hands__paper {
+    top: 50%;
+    left: -13%;
+}
+
+.title__hands__scissors {
+    top: 50%;
+    right: -13%;
+}
 /* ANIMATION for shaking fist */
 .animation {
     animation: shake 0.5s;
@@ -145,27 +212,50 @@ img {
 
 /* MODAL */
 #modal {
-    /* visibility: hidden; */
     top: 0;
     bottom: 0;
-    position: absolute;
+    position: fixed;
     width: 100%;
-    background: gray;
-    opacity: 0.8;
+    background: var(--main-dark-opacity);
     color: yellow;
     display: flex;
     justify-content: center;
+    height: 100vh;
 }
 
-.modal-body {
-    margin: 30% auto;
+.not-visible {
+    visibility: hidden;
+}
+
+.modal__body {
+    margin: 10% auto;
     text-align: center;
+    background-color: var(--main-bg-color);
+    height: fit-content;
+    padding: 25px;
+    border-radius: 10px;
+    width: 300px;
 }
 
-.modal-title {
+.modal__title {
+    font-size: 20px;
+}
+
+.modal__body p {
     font-size: 40px;
 }
 
-.modal p {
-    font-size: 25px;
+/* Start new game / Let's start button */
+.btn {
+    border: 2px solid var(--light-lime-color);
+    border-radius: 25px;
+    padding: 10px;
+    background-color: var(--main-light-color);
+    color: var(--light-lime-color);
+    outline: transparent;
+    box-shadow: 0 4px var(--main-bg-color);
+}
+
+.btn__start-new-game {
+    font-size: 16px;
 }

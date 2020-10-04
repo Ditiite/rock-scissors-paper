@@ -10,43 +10,52 @@
     <body>
         <section class="container">
             <div class="score">
-                <h1 class="title">Rock, paper, scissors</h1>
-                <div class="player-score">
+                <!-- <h1 class="title">Rock, paper, scissors</h1> -->
+                <div class="title">
+                    <div class="title__hands">
+                        <div class="title__hands__rock"></div>
+                        <div class="title__hands__scissors"></div>
+                        <div class="title__hands__paper"></div>
+                    </div>
+                </div>
+                <div class="player__score">
                     <h2>Player</h2>
-                    <p id="player-score">0</p>
+                    <p id="player__score">0</p>
                 </div>
-                <div class="computer-score">
+                <div class="computer__score">
                     <h2>Computer</h2>
-                    <p id="computer-score">0</p>
+                    <p id="computer__score">0</p>
                 </div>
-                <button class="btn-start-game">Let's play!</button>
+                <button class="btn__start-game">Let's play!</button>
             </div>
-            <div class="match game-screen fadeOut">
+            <div class="match game-screen fade__out">
                 <h4 class="round-winner"></h4>
                 <div class="choise xanimation">
                     <div class="rotate player-choise">
                         <img class="player-hand" src="assets/rock.png" alt=""/>
                     </div>
-                    <div class="computer-choise">
-                        <img class="computer-hand" src="assets/rock.png" aly=""/>
+                    <div class="computer__choise">
+                        <img class="computer__hand" src="assets/rock.png" aly=""/>
                     </div>
                 </div>
                 <h2 class="title-select-choise">Select your choise!</h2>
                 <div class="options">
-                    <button class="btn-option btn-rock" value="rock"></button>
-                    <button class="btn-option btn-scissors" value="scissors"></button>
-                    <button class="btn-option btn-paper" value="paper"></button>
+                    <button class="btn__option btn__rock" value="rock"></button>
+                    <button class="btn__option btn__scissors" value="scissors"></button>
+                    <button class="btn__option btn__paper" value="paper"></button>
                 </div>
             </div>
         </section>
-        <div id="modal" class="fadeOut">
-            <div class="modal-body">
-                <h3 class="modal-title">Game Over!!!</h3>
-                <p class="winner">HHHH</p>
-                <button class="btn btn-start-new-game">Start new game</button>
+        <div id="modal" class="fade__out not-visible">
+            <div class="modal__body">
+                <h3 class="modal__title">Game Over!!!</h3>
+                <p class="winner"></p>
+                <button class="btn btn__start-new-game click-animation">Start new game</button>
             </div>
         </div>
 
         <script src="index.js"></script>
+        <footer>
+        </footer>
     </body>
 </html>

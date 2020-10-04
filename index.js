@@ -7,22 +7,23 @@ let roundsPlayed = 0;
 let computerChoise;
 let playerChoise;
 
-const playerOptions = document.querySelectorAll('.btn-option');
-const playerScoreHTML = document.querySelector('#player-score');
-const computerScoreHTML = document.querySelector('#computer-score');
+const playerOptions = document.querySelectorAll('.btn__option');
+const playerScoreHTML = document.querySelector('#player__score');
+const computerScoreHTML = document.querySelector('#computer__score');
 const roundWinner = document.querySelector('.round-winner');
 const animation = document.querySelector('.choise');
-const computerHand = document.querySelector('.computer-hand');
+const computerHand = document.querySelector('.computer__hand');
+const modal = document.querySelector("#modal");
 
 
 const startGame = () => {
-    const startBtn = document.querySelector('.btn-start-game');
+    const startBtn = document.querySelector('.btn__start-game');
     const gameScreen = document.querySelector('.game-screen');
     startBtn.addEventListener('click', () => {
-        gameScreen.classList.add('fadeIn');
-        gameScreen.classList.remove('fadeOut');
-        startBtn.classList.add('fadeOut');
-    })
+        gameScreen.classList.add('fade__in');
+        gameScreen.classList.remove('fade__out');
+        startBtn.classList.add('fade__out');
+    });
 
     getPlayerChoise();
 }
@@ -79,7 +80,7 @@ const displayChoise = (choise, player) => {
 const roundsOfGame = () => {
     roundsPlayed ++;
 
-    if (roundsPlayed >= 10) {
+    if (roundsPlayed >= 2) {
         // If game over, disable the choise buttons
         for(let btn of playerOptions) {
             btn.setAttribute('disabled', true);
@@ -99,8 +100,8 @@ const getMatchResult = () => {
 
     if (playerChoise === computerChoise) {
         displayWinnerOfRound('tie')
-        // updatePlayerScore('tie');
-        // updateComputerScore('tie');
+        updatePlayerScore('tie');
+        updateComputerScore('tie');
         console.log("it's a tie!!!")
         return;
     }
@@ -166,11 +167,12 @@ const updateComputerScore = ( result ) => {
 
 // Game over
 const displayGameOverModal = (player) => {
-    const modal = document.querySelector("#modal");
     const gameWinner = document.querySelector('.winner');
+    modal.classList.remove('fade__out', 'not-visible');
+    modal.classList.add('fade__in');
 
     if (playerScoreCounter > computerScoreCounter) {
-        gameWinner.innerHTML = `The winner is plyer`;
+        gameWinner.innerHTML = `The winner is palyer`;
     } else if (playerScoreCounter < computerScoreCounter) {
         gameWinner.innerHTML = `The winner is computer`;
     } else if (playerScoreCounter === computerScoreCounter) {
@@ -179,9 +181,6 @@ const displayGameOverModal = (player) => {
         gameWinner.innerHTML = `The winner is ${player}`;
     }
 
-
-
-    modal.classList.remove('fadeOut');
     startNewGame();
 }
 
@@ -204,9 +203,13 @@ const isLastThreeWins = (playerScore, player) => {
 
 // Start new game. Reset all values
 const startNewGame = () => {
-    const newGameBtn = document.querySelector('.btn-start-new-game');
+    const newGameBtn = document.querySelector('.btn__start-new-game');
     newGameBtn.addEventListener('click', () => {
-        location.reload();
+        modal.classList.add('fade__out');
+        modal.classList.remove('fade__in');
+        setTimeout(() => {
+            location.reload();
+        }, 500)
     })
 }
 
