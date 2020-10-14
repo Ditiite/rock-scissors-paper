@@ -23,7 +23,6 @@ body {
     margin: 50px auto;
     grid-template-columns: 50% 50%;
     text-align: center;
-    /* position: relative; */
 }
 
 .fade__out {
@@ -193,6 +192,7 @@ button:active {
     top: 50%;
     right: -13%;
 }
+
 /* ANIMATION for shaking fist */
 .animation {
     animation: shake 0.5s;
